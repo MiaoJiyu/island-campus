@@ -1,0 +1,91 @@
+# 通用配置
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: island-campus
+  profiles:
+    active: local
+
+  # 数据源（各profile覆盖）
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  # Jackson
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+    default-property-inclusion: non_null
+
+  # 文件上传
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 50MB
+
+  # Quartz
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: embedded
+    properties:
+      org.quartz.threadPool.threadCount: 10
+
+# MyBatis-Plus
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: com.islandcampus.server.**.entity
+  global-config:
+    db-config:
+      id-type: assign_id
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# Knife4j
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+# JWT自定义配置（覆盖JwtTokenProvider默认值）
+jwt:
+  secret: island-campus-jwt-secret-key-2024-super-long-secret-for-hmac-sha256!!
+  expire-ms: 7200000
+
+# 天气API默认配置
+weather:
+  default-api-url: https://uapis.cn/api/v1/misc/weather
+  default-api-key: uapi-j5jky0ggkSIABn-OreTfovNhfyEPDVRewQ3BgEBQ
+  fetch-interval-minutes: 30
+
+# 上传路径
+upload:
+  path: ./uploads/
+screenshot:
+  path: ./screenshots/
+
+# 日志
+logging:
+  level:
+    com.islandcampus: debug
+    org.springframework.security: info
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"

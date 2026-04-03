@@ -1,0 +1,16 @@
+# 本地开发环境
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/island_campus?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: island_redis_2024
+      database: 0
+
+logging:
+  level:
+    com.islandcampus: debug

@@ -1,0 +1,43 @@
+# IDE
+.codebuddy/
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# Java
+target/
+*.class
+*.jar
+*.war
+*.log
+hs_err_pid*
+
+# Node
+node_modules/
+dist/
+.output/
+.nuxt/
+.cache/
+
+# Electron
+out/
+release/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Temp
+temp/
+*.tmp
+
+# Docker volumes (data persisted in named volumes)
+# docker-data/ is intentionally NOT ignored - it's for development data persistence

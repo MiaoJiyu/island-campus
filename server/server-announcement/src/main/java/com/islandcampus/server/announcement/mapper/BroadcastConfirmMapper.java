@@ -1,0 +1,9 @@
+package com.islandcampus.server.announcement.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.islandcampus.server.announcement.mapper.entity.BroadcastConfirm;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface BroadcastConfirmMapper extends BaseMapper<BroadcastConfirm> {
+}

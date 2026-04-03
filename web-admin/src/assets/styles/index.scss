@@ -1,0 +1,62 @@
+/* ============================================
+   灵动岛校园 - Web管理端全局样式
+   ============================================ */
+
+// 变量
+:root {
+  --primary-color: #409eff;
+  --success-color: #67c23a;
+  --warning-color: #e6a23c;
+  --danger-color: #f56c6c;
+  --info-color: #909399;
+  --bg-color: #f0f2f5;
+  --sidebar-width: 220px;
+  --sidebar-collapsed-width: 64px;
+  --header-height: 60px;
+  --border-radius: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #app { height: 100%; font-size: 14px; color: #303133; background: var(--bg-color); }
+
+// 滚动条
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: #c0c4cc; border-radius: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+// 响应式断点
+@media (max-width: 768px) {
+  :root { --sidebar-width: 0px; }
+  .mobile-hidden { display: none !important; }
+}
+
+.page-container {
+  padding: 20px;
+  min-height: calc(100vh - var(--header-height) - 40px);
+}
+
+.page-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 16px;
+  h2 { font-size: 18px; font-weight: 600; color: #1d2129; }
+}
+
+.search-bar {
+  display: flex; gap: 12px; flex-wrap: wrap; padding: 16px;
+  background: #fff; border-radius: var(--border-radius);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05); margin-bottom: 16px;
+}
+
+.data-table-card {
+  background: #fff; border-radius: var(--border-radius);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05); padding: 16px;
+
+  .el-table { width: 100%; }
+}
+
+.status-tag { &--green { color: var(--success-color); } &--yellow { color: var(--warning-color); } &--red { color: var(--danger-color); } }
+
+// 移动端适配
+.mobile-page {
+  .van-cell-group { margin: 12px; border-radius: 12px; overflow: hidden; }
+}
